@@ -25,8 +25,12 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableConfigurationProperties(SwaggerProperties.class)
 public class SwaggerConfiguration {
 
-    @Autowired
     private SwaggerProperties properties;
+
+    @Autowired
+    public SwaggerConfiguration(SwaggerProperties properties) {
+        this.properties = properties;
+    }
 
     @Bean
     UiConfiguration uiConfiguration() {
@@ -59,11 +63,12 @@ public class SwaggerConfiguration {
     }
 
     private ApiInfo apiInfo() {
+        final SwaggerProperties.Contact contact = properties.getContact();
         return new ApiInfoBuilder()
                 .title(properties.getTitle())
                 .description(properties.getDescription())
                 .termsOfServiceUrl(properties.getTermsOfServiceUrl())
-                .contact(new Contact(properties.getContactName(), properties.getContactUrl(), properties.getContactEmail()))
+                .contact(new Contact(contact.getName(), contact.getUrl(), contact.getEmail()))
                 .license(properties.getLicense())
                 .licenseUrl(properties.getLicenseUrl())
                 .version(properties.getVersion())

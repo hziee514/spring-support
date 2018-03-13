@@ -19,11 +19,7 @@ public class SwaggerProperties {
 
     private String version;
 
-    private String contactName;
-
-    private String contactUrl;
-
-    private String contactEmail;
+    private Contact contact = new Contact();
 
     private String termsOfServiceUrl;
 
@@ -67,28 +63,12 @@ public class SwaggerProperties {
         this.version = version;
     }
 
-    public String getContactName() {
-        return contactName;
+    public Contact getContact() {
+        return contact;
     }
 
-    public void setContactName(String contactName) {
-        this.contactName = contactName;
-    }
-
-    public String getContactUrl() {
-        return contactUrl;
-    }
-
-    public void setContactUrl(String contactUrl) {
-        this.contactUrl = contactUrl;
-    }
-
-    public String getContactEmail() {
-        return contactEmail;
-    }
-
-    public void setContactEmail(String contactEmail) {
-        this.contactEmail = contactEmail;
+    public void setContact(Contact contact) {
+        this.contact = contact;
     }
 
     public String getTermsOfServiceUrl() {
@@ -129,5 +109,35 @@ public class SwaggerProperties {
 
     public void setBasePackage(String basePackage) {
         this.basePackage = basePackage;
+    }
+
+    public static class Contact {
+        private String name;
+        private String url;
+        private String email;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getUrl() {
+            return url;
+        }
+
+        public void setUrl(String url) {
+            this.url = url;
+        }
+
+        public String getEmail() {
+            return email;
+        }
+
+        public void setEmail(String email) {
+            this.email = email;
+        }
     }
 }

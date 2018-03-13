@@ -76,9 +76,10 @@ swagger
   title: 
   description: 
   version: 
-  contactName: 
-  contactUrl: 
-  contactEmail: 
+  contact:
+    name: 
+    url:
+    email: 
   termsOfServiceUrl: 
   license: 
   licenseUrl: 
@@ -117,4 +118,4 @@ public class SampleController {
 ```
 
 ### 访问地址
-http://<ip>:<port>/swagger-ui.html
+http://[ip]:[port]/swagger-ui.html
